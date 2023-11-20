@@ -14,5 +14,6 @@ class AuthController extends Controller
         }else{
             return redirect()->back()->with("login-error","Problem appeared");
         }
+        
     }
 }
