@@ -23,7 +23,8 @@ class User extends Authenticatable
         "email_verified_at",
         "remember_token",
         'password',
-        "role_id"
+        "role_id",
+        "created_at"
     ];
 
     /**
@@ -45,4 +46,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function role(){
+        return $this->hasOne("App\Models\Role","id","role_id");
+    }
 }

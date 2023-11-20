@@ -11,18 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('privileges', function (Blueprint $table) {
+        Schema::create('role_privileges', function (Blueprint $table) {
             $table->id();
-            $table->string('key')->unique();
-            $table->string('value');
-            $table->text("description")->nullable();
+            $table->unsignedInteger("role_id");
+            $table->unsignedInteger("privilege_id");
             $table->unsignedInteger("creator_id")->nullable();
             $table->timestamps();
 
-            // $table->foreign('belonging_id')->references('id')->on('roles');
-            // $table->foreign('creator_id')->references('id')->on('users');
-
-            $table->index(["key","value"]);
+            $table->index(["role_id","privilege_id"]);
         });
     }
 
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('privileges');
+        Schema::dropIfExists('role_privileges');
     }
 };

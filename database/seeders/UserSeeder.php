@@ -22,7 +22,8 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             "role_id" => 1,
             "password" => Hash::make('123456'),
-            "remember_token" => Str::random(10)
+            "remember_token" => Str::random(10),
+            "created_at" => now()
         ];
        
         $faker = new UserFactory();

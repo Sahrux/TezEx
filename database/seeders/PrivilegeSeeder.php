@@ -15,37 +15,38 @@ class PrivilegeSeeder extends Seeder
     public function run(): void
     {
         $data  = [
-                [
-                    "key" =>  "see_admins",
-                    "value" => "Adminləri görmək",
-                ],
-                [
-                    "key" =>  "see_customers",
-                    "value" => "Müştəriləri görmək",
-                ],
-                [
-                    "key" =>  "see_branches",
-                    "value" => "Filialları görmək",
-                ],
-                [
-                    "key" =>  "see_packages",
-                    "value" => "Bağlamaları görmək",
-                ],
-                [
-                    "key" =>  "see_roles",
-                    "value" => "Rolları görmək",
-                ],
-                [
-                    "key" =>  "edit_roles",
-                    "value" => "Rolları dəyişmək",
-                ],
-                [
-                    "key" =>  "make_sorting",
-                    "value" => "Çeşidləmə etmək",
-                ],
-            ];
+                    [
+                        "key" =>  "see_admins",
+                        "value" => "Adminləri görmək",
+                    ],
+                    [
+                        "key" =>  "see_customers",
+                        "value" => "Müştəriləri görmək",
+                    ],
+                    [
+                        "key" =>  "see_branches",
+                        "value" => "Filialları görmək",
+                    ],
+                    [
+                        "key" =>  "see_packages",
+                        "value" => "Bağlamaları görmək",
+                    ],
+                    [
+                        "key" =>  "see_roles",
+                        "value" => "Rolları görmək",
+                    ],
+                    [
+                        "key" =>  "edit_roles",
+                        "value" => "Rolları dəyişmək",
+                    ],
+                    [
+                        "key" =>  "make_sorting",
+                        "value" => "Çeşidləmə etmək",
+                    ],
+                ];
      foreach($data as $key => $value){
         $data[$key]["creator_id"] = Auth::user() ?  Auth::user()->id : 1;
+        $data[$key]["created_at"] =  now();
      }
     //  dd($data);
      DB::table('privileges')->insert($data);

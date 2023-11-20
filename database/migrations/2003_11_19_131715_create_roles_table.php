@@ -19,6 +19,8 @@ return new class extends Migration
             $table->timestamps();
 
             // $table->foreign('creator_id')->references('id')->on('users');
+            $table->index(["key","value"]);
+
         });
     }
 

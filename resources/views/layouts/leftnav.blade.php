@@ -12,7 +12,7 @@
         </a>
       </li>
       <li class="nav-item menu-open">
-        <a href="#" class="nav-link {{ Route::is("admins") ? "active" : "" }}">
+        <a href="{{ route("admins") }}" class="nav-link {{ Route::is("admins") ? "active" : "" }}">
           <i class="fas fa-users-cog"></i>&nbsp
           <p>
             Admins
@@ -20,7 +20,7 @@
         </a>
       </li>
       <li class="nav-item menu-open">
-        <a href="#" class="nav-link {{ Route::is("customers") ? "active" : "" }}">
+        <a href="{{ route("customers") }}" class="nav-link {{ Route::is("customers") ? "active" : "" }}">
           <i class="fas fa-users"></i>&nbsp
           <p>
             Customers
@@ -28,7 +28,7 @@
         </a>
       </li>
       <li class="nav-item menu-open">
-        <a href="#" class="nav-link {{ Route::is("branches") ? "active" : "" }}">
+        <a href="{{ route("branches") }}" class="nav-link {{ Route::is("branches") ? "active" : "" }}">
           <i class="fas fa-warehouse"></i>&nbsp
           <p>
             Branches
@@ -36,7 +36,7 @@
         </a>
       </li>
       <li class="nav-item menu-open">
-        <a href="#" class="nav-link {{ Route::is("packs") ? "active" : "" }}">
+        <a href="{{ route("packs") }}" class="nav-link {{ Route::is("packs") ? "active" : "" }}">
           <i class="fas fa-box-open"></i>&nbsp
           <p>
             Packages
@@ -44,7 +44,7 @@
         </a>
       </li>
       <li class="nav-item menu-open">
-        <a href="#" class="nav-link {{ Route::is("roles") ? "active" : "" }}">
+        <a href="{{ route("roles") }}" class="nav-link {{ Route::is("roles") ? "active" : "" }}">
           <i class="fas fa-cogs"></i>&nbsp
           <p>
             Roles and Privileges
@@ -52,7 +52,7 @@
         </a>
       </li>
       <li class="nav-item menu-open">
-        <a href="#" class="nav-link {{ Route::is("sorting") ? "active" : "" }}">
+        <a href="{{ route("sorting") }}" class="nav-link {{ Route::is("sorting") ? "active" : "" }}">
           &nbsp<i class="fas fa-filter"></i>&nbsp
           <p>
             Sorting

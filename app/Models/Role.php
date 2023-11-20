@@ -8,13 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Role extends Model
 {
     use HasFactory;
-    protected $fillable = ["key","value","creator_id"];
+    protected $fillable = ["key","value","creator_id","created_at"];
     
-    public function privilege(){
-        return $this->hasMany("App\Models\Privilege");
+    public function privileges(){
+        return $this->belongsToMany(Privilege::class,"role_privileges");
     }
 
     public function user(){
-        return $this->hasOne("App\Models\User");
+        return $this->hasOne("App\Models\User","id","creator_id");
     }
 }
