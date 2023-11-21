@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,7 +22,7 @@ Route::get('/', function () {
         return redirect("/login");
     }
     // dd(Auth::user()->role->load("privileges")->toArray());
-    dd(has_access_to("edit_roles"));
+    // dd(has_access_to("edit_roles"));
     return view('index');
 })->name("home");
 
@@ -34,9 +37,7 @@ Route::middleware("auth.check")->group(function(){
     })->name("logout");
     Route::post("login",[AuthController::class,"login"])->name("login");
 
-    Route::get("admins",function(){
-        return view("admins");
-    })->name("admins");
+    Route::get("admins",[UserController::class,"index"])->name("admins");
     Route::get("customers",function(){
         return view("customers");
     })->name("customers");
@@ -52,5 +53,7 @@ Route::middleware("auth.check")->group(function(){
     Route::get("sorting",function(){
         return view("sorting");
     })->name("sorting");
+
+    Route::get("role/{id}/privileges",[RoleController::class,"getPrivileges"])->name("role_privileges");
 });
 
