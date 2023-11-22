@@ -16,23 +16,23 @@ class PrivilegeSeeder extends Seeder
     {
         $data  = [
                     [
-                        "key" =>  "see_admins",
+                        "key" =>  "show_admins",
                         "value" => "Adminləri görmək",
                     ],
                     [
-                        "key" =>  "see_customers",
+                        "key" =>  "show_customers",
                         "value" => "Müştəriləri görmək",
                     ],
                     [
-                        "key" =>  "see_branches",
+                        "key" =>  "show_branches",
                         "value" => "Filialları görmək",
                     ],
                     [
-                        "key" =>  "see_packages",
+                        "key" =>  "show_packages",
                         "value" => "Bağlamaları görmək",
                     ],
                     [
-                        "key" =>  "see_roles",
+                        "key" =>  "show_roles",
                         "value" => "Rolları görmək",
                     ],
                     [

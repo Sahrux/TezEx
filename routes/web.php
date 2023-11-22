@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,9 +39,8 @@ Route::middleware("auth.check")->group(function(){
     Route::post("login",[AuthController::class,"login"])->name("login");
 
     Route::get("admins",[UserController::class,"index"])->name("admins");
-    Route::get("customers",function(){
-        return view("customers");
-    })->name("customers");
+    Route::get("customers",[CustomerController::class,"index"])->name("customers");
+
     Route::get("packs",function(){
         return view("packs");
     })->name("packs");
