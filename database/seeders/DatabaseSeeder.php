@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
                         RoleSeeder::class,
                         UserSeeder::class,
                         RolePrivilegeSeeder::class,
-                        CustomerSeeder::class
+                        CustomerSeeder::class,
+                        BranchSeeder::class
                     ]);
         // \App\Models\User::factory(10)->create();
 

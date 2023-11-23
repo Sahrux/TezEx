@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BranchController;
 use App\Http\Controllers\CustomerController;
 
 /*
@@ -40,6 +41,7 @@ Route::middleware("auth.check")->group(function(){
 
     Route::get("admins",[UserController::class,"index"])->name("admins");
     Route::get("customers",[CustomerController::class,"index"])->name("customers");
+    Route::get("branches",[BranchController::class,"index"])->name("branches");
 
     Route::get("packs",function(){
         return view("packs");
@@ -47,9 +49,7 @@ Route::middleware("auth.check")->group(function(){
     Route::get("roles",function(){
         return view("roles");
     })->name("roles");
-    Route::get("branches",function(){
-        return view("branches");
-    })->name("branches");
+
     Route::get("sorting",function(){
         return view("sorting");
     })->name("sorting");
