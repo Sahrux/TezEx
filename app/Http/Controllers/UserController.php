@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function index(){
-        $admins = User::with("role")->get()->toArray();
+        $admins = User::where("deleted_at",null)->with("role")->get()->toArray();
         return view("admins",["admins" => $admins]);
     }
 }

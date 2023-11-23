@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class CustomerController extends Controller
 {
     public function index(){
-        $customers = Customer::get()->toArray();
+        $customers = Customer::where("deleted_at",null)->get()->toArray();
         return view("customers",["customers" => $customers]);
     }
 }

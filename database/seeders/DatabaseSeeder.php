@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
                         UserSeeder::class,
                         RolePrivilegeSeeder::class,
                         CustomerSeeder::class,
-                        BranchSeeder::class
+                        BranchSeeder::class,
+                        PackSeeder::class
                     ]);
         // \App\Models\User::factory(10)->create();
 

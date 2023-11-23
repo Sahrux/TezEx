@@ -11,17 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('packs', function (Blueprint $table) {
             $table->id();
-            $table->string('key')->unique();
-            $table->string('value');
-            $table->unsignedInteger("creator_id")->nullable();
+            $table->string("tracking_id");
+            $table->unsignedInteger("customer_id");
+            $table->unsignedInteger("branch_id")->default(1);
+            $table->integer("status")->default(0);//not sorted
             $table->timestamps();
             $table->dateTime("deleted_at")->nullable();
-
-            // $table->foreign('creator_id')->references('id')->on('users');
-            $table->index(["key","value"]);
-
         });
     }
 
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('packs');
     }
 };

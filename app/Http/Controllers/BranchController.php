@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class BranchController extends Controller
 {
     public function index(){
-        $branches = Branch::get()->toArray();
+        $branches = Branch::where("deleted_at",null)->get()->toArray();
         return view("branches",["branches" => $branches]);
     }
 }

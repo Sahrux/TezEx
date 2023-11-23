@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedInteger("privilege_id");
             $table->unsignedInteger("creator_id")->nullable();
             $table->timestamps();
+            $table->dateTime("deleted_at")->nullable();
 
             $table->index(["role_id","privilege_id"]);
         });

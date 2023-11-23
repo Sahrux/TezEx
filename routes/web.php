@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PackController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BranchController;
@@ -42,10 +43,9 @@ Route::middleware("auth.check")->group(function(){
     Route::get("admins",[UserController::class,"index"])->name("admins");
     Route::get("customers",[CustomerController::class,"index"])->name("customers");
     Route::get("branches",[BranchController::class,"index"])->name("branches");
+    Route::get("packs",[PackController::class,"index"])->name("packs");
 
-    Route::get("packs",function(){
-        return view("packs");
-    })->name("packs");
+    
     Route::get("roles",function(){
         return view("roles");
     })->name("roles");

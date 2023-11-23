@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string("address");
             $table->enum('status', ['0', '1'])->nullable()->default('1');
             $table->timestamps();
+            $table->dateTime("deleted_at")->nullable();
         });
     }
 

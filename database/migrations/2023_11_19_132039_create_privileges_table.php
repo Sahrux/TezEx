@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text("description")->nullable();
             $table->unsignedInteger("creator_id")->nullable();
             $table->timestamps();
+            $table->dateTime("deleted_at")->nullable();
 
             // $table->foreign('belonging_id')->references('id')->on('roles');
             // $table->foreign('creator_id')->references('id')->on('users');
