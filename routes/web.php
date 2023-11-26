@@ -44,16 +44,18 @@ Route::middleware("auth.check")->group(function(){
     Route::get("customers",[CustomerController::class,"index"])->name("customers");
     Route::get("branches",[BranchController::class,"index"])->name("branches");
     Route::get("packs",[PackController::class,"index"])->name("packs");
-
-    
-    Route::get("roles",function(){
-        return view("roles");
-    })->name("roles");
+    Route::get("roles",[RoleController::class,"index"])->name("roles");
+    Route::post("roles/add",[RoleController::class,"addRole"])->name("add_role");
+    Route::post("privileges/add",[RoleController::class,"addPrivilege"])->name("add_role");
 
     Route::get("sorting",function(){
         return view("sorting");
     })->name("sorting");
 
     Route::get("role/{id}/privileges",[RoleController::class,"getPrivileges"])->name("role_privileges");
+    Route::put("role/{id}/set-privilege",[RoleController::class,"setPrivileges"])->name("set_privileges");
+
+    Route::delete("roles/{id}/delete",[RoleController::class,"delete"])->name("delete_role");
+    Route::delete("privileges/{id}/delete",[RoleController::class,"delete"])->name("delete_privilege");
 });
 

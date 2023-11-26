@@ -16,19 +16,24 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $data[0] = [
-            "name" => "Test",
-            "email" => "test@gmail.com",
-            'email_verified_at' => now(),
-            "role_id" => 1,
-            "password" => Hash::make('123456'),
-            "remember_token" => Str::random(10),
-            "created_at" => now()
-        ];
+        $data = [];
+        foreach (["developer","admin","viewer"] as $key => $item) {
+            $data[$key] = [
+                "name" => ucfirst($item),
+                "email" => "{$item}@gmail.com",
+                'email_verified_at' => now(),
+                "role_id" => $key + 1,
+                "password" => Hash::make('123456'),
+                "remember_token" => Str::random(10),
+                "created_at" => now()
+            ];
+        }
+        
+       
        
         $faker = new UserFactory();
 
-        for($i = 1;$i <= 15;$i++){
+        for($i = 3;$i <= 15;$i++){
 
             $data[$i] = $faker->definition();
         }

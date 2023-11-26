@@ -17,31 +17,51 @@ class PrivilegeSeeder extends Seeder
         $data  = [
                     [
                         "key" =>  "show_admins",
-                        "value" => "Adminləri görmək",
+                        "value" => "Show admins",
                     ],
                     [
                         "key" =>  "show_customers",
-                        "value" => "Müştəriləri görmək",
+                        "value" => "Show customers",
                     ],
                     [
                         "key" =>  "show_branches",
-                        "value" => "Filialları görmək",
+                        "value" => "Show branches",
                     ],
                     [
                         "key" =>  "show_packages",
-                        "value" => "Bağlamaları görmək",
-                    ],
-                    [
-                        "key" =>  "show_roles",
-                        "value" => "Rolları görmək",
-                    ],
-                    [
-                        "key" =>  "edit_roles",
-                        "value" => "Rolları dəyişmək",
+                        "value" => "Show packs",
                     ],
                     [
                         "key" =>  "make_sorting",
-                        "value" => "Çeşidləmə etmək",
+                        "value" => "Make sorting",
+                    ],
+                    [
+                        "key" =>  "show_roles_n_privileges",
+                        "value" => "Show roles & privileges",
+                    ],
+                    [
+                        "key" =>  "add_roles",
+                        "value" => "Add roles",
+                    ],
+                    [
+                        "key" =>  "edit_roles",
+                        "value" => "Edit roles",
+                    ],
+                    [
+                        "key" =>  "delete_roles",
+                        "value" => "Delete roles",
+                    ],
+                    [
+                        "key" =>  "add_privileges",
+                        "value" => "Add privileges",
+                    ],
+                    [
+                        "key" =>  "edit_privileges",
+                        "value" => "Edit privileges",
+                    ],
+                    [
+                        "key" =>  "delete_privileges",
+                        "value" => "Delete privileges",
                     ],
                 ];
      foreach($data as $key => $value){

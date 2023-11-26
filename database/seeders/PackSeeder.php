@@ -29,7 +29,7 @@ class PackSeeder extends Seeder
             $data[] = [
                 "tracking_id" => "TZ" . rand(1000,9999) . rand(1000,9999),
                 "branch_id" => [1,3][rand(0,1)],
-                "customer_id" => rand(1,26),
+                "customer_id" => rand(1,25),
                 "created_at" => now()
             ];
         }

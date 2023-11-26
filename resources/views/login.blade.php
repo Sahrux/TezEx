@@ -279,8 +279,8 @@ input[type=text]:placeholder {
     @endif
     <form method="post" action="{{ route("login") }}">
         @csrf
-      <input type="text" id="email" class="fadeIn second" name="email" placeholder="email">
-      <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
+      <input type="text" id="email" class="fadeIn second" value="developer@gmail.com" name="email" placeholder="email">
+      <input type="text" id="password" class="fadeIn third" value="123456" name="password" placeholder="password">
       <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
 

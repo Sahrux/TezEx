@@ -20,7 +20,7 @@ class CustomerFactory extends Factory
         return [
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
-            "code" => "0000" . rand(1000,9999),
+            "code" => "0000" . rand(10,99) . rand(10,99),
             'password' =>  Hash::make('123456'),
             "created_at" => now()
         ];

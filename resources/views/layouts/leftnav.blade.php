@@ -5,7 +5,7 @@
            with font-awesome or any other icon font library -->
       
       <li class="nav-item menu-open">
-        <a href="#" class="nav-link {{ Route::is("home") ? "active" : "" }}">
+        <a href="{{ route("home") }}" class="nav-link {{ Route::is("home") ? "active" : "" }}">
           <i class="nav-icon fas fa-tachometer-alt"></i>
           <p>
             Home
@@ -53,7 +53,7 @@
         </a>
       </li>
       @endif
-      @if(has_access_to("show_roles"))
+      @if(has_access_to("show_roles_n_privileges"))
       <li class="nav-item menu-open">
         <a href="{{ route("roles") }}" class="nav-link {{ Route::is("roles") ? "active" : "" }}">
           <i class="fas fa-cogs"></i>&nbsp
