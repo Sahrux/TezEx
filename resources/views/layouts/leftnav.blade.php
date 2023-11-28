@@ -48,7 +48,7 @@
         <a href="{{ route("packs") }}" class="nav-link {{ Route::is("packs") ? "active" : "" }}">
           <i class="fas fa-box-open"></i>&nbsp
           <p>
-            Packages
+            Packs
           </p>
         </a>
       </li>

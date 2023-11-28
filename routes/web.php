@@ -8,6 +8,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\SortingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,13 +45,16 @@ Route::middleware("auth.check")->group(function(){
     Route::get("customers",[CustomerController::class,"index"])->name("customers");
     Route::get("branches",[BranchController::class,"index"])->name("branches");
     Route::get("packs",[PackController::class,"index"])->name("packs");
+    Route::get("packs/live",[PackController::class,"live"])->name("packs-live");
+    Route::get("packs/{id}/get-by-tracking-id",[PackController::class,"getByTrackingId"])->name("get_by_tracking_id");
+
     Route::get("roles",[RoleController::class,"index"])->name("roles");
     Route::post("roles/add",[RoleController::class,"addRole"])->name("add_role");
     Route::post("privileges/add",[RoleController::class,"addPrivilege"])->name("add_role");
 
-    Route::get("sorting",function(){
-        return view("sorting");
-    })->name("sorting");
+    Route::post("sorting/make-sack",[SortingController::class,"makeSack"])->name("make_sack");
+
+    Route::get("sorting",[SortingController::class,"index"])->name("sorting");
 
     Route::get("role/{id}/privileges",[RoleController::class,"getPrivileges"])->name("role_privileges");
     Route::put("role/{id}/set-privilege",[RoleController::class,"setPrivileges"])->name("set_privileges");

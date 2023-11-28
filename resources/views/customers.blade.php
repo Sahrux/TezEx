@@ -24,6 +24,7 @@
         <th scope="col">Code</th>
         <th scope="col">Name</th>
         <th scope="col">Email</th>
+        <th scope="col">Packs</th>
       </tr>
     </thead>
     <tbody>
@@ -34,6 +35,7 @@
             <td>{{ $customer["code"] }}</td>
             <td>{{ $customer["name"] }}</td>
             <td>{{ $customer["email"] }}</td>
+            <td><a href="/packs?customer_id={{ $customer["id"] }}" target="_blank" data-toggle="tooltip" data-title="Show packs"><i class="fas fa-eye"></i></a></td>
         </tr>
         @endforeach
     
@@ -43,5 +45,9 @@
 @endsection
 
 @section("js")
-  
+  <script>
+    $(function(){
+        $(`[data-toggle="tooltip"]`).tooltip();
+    })
+  </script>
 @endsection

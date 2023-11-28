@@ -11,7 +11,7 @@ class Customer extends Model
     protected $fillable = ["code","name","email","password","deleted_at","created_at"];
 
     public function pack(){
-        return $this->hasMany(Pack::class);
+        return $this->hasMany(Pack::class,"customer_id","id");
     }
     
 }

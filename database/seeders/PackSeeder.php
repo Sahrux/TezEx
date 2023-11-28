@@ -25,11 +25,12 @@ class PackSeeder extends Seeder
     {
         $data = [];
 
-        for($i = 0;$i < 5;$i++){
+        for($i = 0;$i < 25;$i++){
             $data[] = [
                 "tracking_id" => "TZ" . rand(1000,9999) . rand(1000,9999),
                 "branch_id" => [1,3][rand(0,1)],
                 "customer_id" => rand(1,25),
+                "category_id" => rand(1,4),
                 "created_at" => now()
             ];
         }
