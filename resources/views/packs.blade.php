@@ -21,7 +21,7 @@ Packs
       <select class="form-control" data-role="customer">
         <option value="">Select customer</option>
         @foreach ($customers as $customer)
-            <option value="{{ $customer["id"] }}" {{ isset($_GET["customer_id"]) &&  $_GET["customer_id"] === $customer["id"] ? "selected" : "" }}>{{ $customer["name"] }}</option>
+            <option value="{{ $customer["id"] }}" {{ request("customer_id") === $customer["id"] ? "selected" : "" }}>{{ $customer["name"] . "( ". $customer["count"] ." )" }}</option>
         @endforeach
       </select>
     </div>
@@ -30,7 +30,7 @@ Packs
       <select class="form-control" data-role="branch">
         <option value="">Select branch</option>
         @foreach ($branches as $branch)
-            <option value="{{ $branch["id"] }}" {{ isset($_GET["branch_id"]) &&  $_GET["branch_id"] === $branch["id"] ? "selected" : "" }}>{{ $branch["name"] }}</option>
+            <option value="{{ $branch["id"] }}" {{ isset($_GET["branch_id"]) &&  $_GET["branch_id"] === $branch["id"] ? "selected" : "" }}>{{ $branch["name"] . "( ". $branch["count"] ." )" }}</option>
         @endforeach
       </select>
     </div>

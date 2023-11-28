@@ -14,7 +14,12 @@ class PackController extends Controller
         $packs = Pack::where("deleted_at",null)->with(["customer","branch","category"])->get()->toArray();
         $customers = [];
         $branches =  [];
+        $c_counter = $b_counter = [];
         foreach($packs as $pack){
+            $c_counter[$pack["customer_id"]] = isset($c_counter[$pack["customer_id"]]) ? $c_counter[$pack["customer_id"]] + 1 : 1;
+            $b_counter[$pack["branch_id"]] = isset($b_counter[$pack["branch_id"]]) ? $b_counter[$pack["branch_id"]] + 1 : 1;
+            $pack["customer"]["count"] = $c_counter[$pack["customer_id"]];
+            $pack["branch"]["count"] = $b_counter[$pack["branch_id"]];
             $customers[$pack["customer_id"]] = $pack["customer"];
             $branches[$pack["branch_id"]] = $pack["branch"];
         }
@@ -38,6 +43,7 @@ class PackController extends Controller
 
         foreach($packs as $key => $pack){
             $packs[$key]["status"] = $statuses[$pack["status"]];
+            $packs[$key]["created_at"] = date("Y-m-d H:i:s",strtotime($pack["created_at"]));
         }
         
         return response()->json([

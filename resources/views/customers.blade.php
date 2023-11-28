@@ -29,13 +29,22 @@
     </thead>
     <tbody>
         @foreach ($customers as $key => $customer)
+        @php
+            $pack_count = count($customer["pack"]);
+        @endphp
         <tr>
             <th scope="row">{{ $key + 1 }}</th>
             <td>{{ date("Y-m-d",strtotime($customer["created_at"])) }}</td>
             <td>{{ $customer["code"] }}</td>
             <td>{{ $customer["name"] }}</td>
             <td>{{ $customer["email"] }}</td>
-            <td><a href="/packs?customer_id={{ $customer["id"] }}" target="_blank" data-toggle="tooltip" data-title="Show packs"><i class="fas fa-eye"></i></a></td>
+            <td>
+                @if ($pack_count > 0)
+                    <a href="/packs?customer_id={{ $customer["id"] }}" target="_blank" data-toggle="tooltip" data-title="Show packs">{{ $pack_count }}</a>
+                @else
+                    0
+                @endif
+            </td>
         </tr>
         @endforeach
     
