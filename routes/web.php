@@ -5,10 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PackController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SackController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BranchController;
-use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\SortingController;
+use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,7 @@ Route::middleware("auth.check")->group(function(){
     Route::get("customers",[CustomerController::class,"index"])->name("customers");
     Route::get("branches",[BranchController::class,"index"])->name("branches");
     Route::get("packs",[PackController::class,"index"])->name("packs");
+    Route::get("sacks",[SackController::class,"index"])->name("sacks");
     Route::get("packs/live",[PackController::class,"live"])->name("packs-live");
     Route::get("packs/{id}/get-by-tracking-id",[PackController::class,"getByTrackingId"])->name("get_by_tracking_id");
 

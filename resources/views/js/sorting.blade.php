@@ -45,7 +45,12 @@
                 success: function(d){
                     Swal.fire("",d.message,d.code === 201 ? "success" : "warning")
                     if(d.code === 201){
-                        
+                        $(`.tab-pane`).each(function(){
+                            $(this).find(`tbody`).html("");
+                        })
+                        $(`a[data-toggle="tab"]`).each(function(){
+                            $(this).html($(this).data("value"));
+                        })
                     }
                 },
                 error: function(e){

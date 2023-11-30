@@ -36,6 +36,10 @@ class PrivilegeSeeder extends Seeder
                         "value" => "Make sorting",
                     ],
                     [
+                        "key" =>  "show_sacks",
+                        "value" => "Show sacks",
+                    ],
+                    [
                         "key" =>  "show_roles_n_privileges",
                         "value" => "Show roles & privileges",
                     ],

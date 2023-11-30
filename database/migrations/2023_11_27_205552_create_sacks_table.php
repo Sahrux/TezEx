@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('sacks', function (Blueprint $table) {
             $table->id();
             $table->string("code");
+            $table->string("name");
             $table->unsignedInteger("branch_id");
             $table->unsignedInteger("type_id");
             $table->text("description")->nullable();

@@ -33,7 +33,7 @@
           @endphp
         @endif
         <li class="nav-item">
-          <a class="nav-link {{ $key === 0 ? "active" : "" }}" id="tab__{{ $branch["id"] }}" data-value="{{ $branch["name"] }}" data-id="{{ $branch["id"] }}" data-toggle="tab" href="#tab_{{ $branch["id"] }}">{{ $branch["name"] }}</a>
+          <a class="nav-link {{ $key === 0 ? "active" : "" }}" id="tab__{{ $branch["id"] }}" data-value="{{ $branch["name"] }}" data-id="{{ $branch["id"] }}" data-toggle="tab" href="#tab_{{ $branch["id"] }}">{{ $branch["name"] . (isset($branch_pack_counter[$branch["id"]]) ? " (" . $branch_pack_counter[$branch["id"]] . ")" : "") }}</a>
         </li>
         @endforeach
       </ul>
@@ -50,7 +50,16 @@
     <div class="tab-pane fade {{ $key === 0 ? "show active" : "" }}" id="tab_{{ $branch["id"] }}">
       <table class="table table-responsive">
         <tbody data-id="{{ $branch["id"] }}">
-
+          @if (isset($packs[$branch["id"]]))
+            @foreach ($packs[$branch["id"]] as $key => $pack )
+              <tr>
+                <td><span data-toggle="tooltip" data-placement="right" data-title="Customer">{{ $pack["customer"]["name"] }}</span></td>
+                <td><span data-toggle="tooltip" data-placement="right" data-title="Category">{{ $pack["category"]["value"] }}</span></td>
+                <td><span data-toggle="tooltip" data-placement="right" data-title="Type">{{ $pack["category"]["type"]["value"] }}</span></td>
+                <td><span data-toggle="tooltip" data-placement="right" data-title="Added date">{{ date("Y-m-d H:i:s",strtotime($pack["created_at"])) }}</span></td>
+              </tr>
+            @endforeach
+          @endif
         </tbody>
       </table>
     </div>

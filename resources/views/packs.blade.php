@@ -44,6 +44,7 @@ Packs
         <th scope="col">Branch</th>
         <th scope="col">Category</th>
         <th scope="col">Status</th>
+        <th scope="col">In sack</th>
       </tr>
     </thead>
     <tbody id="pack_tbody">
@@ -57,6 +58,7 @@ Packs
             <td>{{ $pack["branch"]["name"] }}</td>
             <td>{{ $pack["category"]["value"] }}</td>
             <td>{{ $statuses[$pack["status"]] }}</td>
+            <td>{{ $pack["sack_id"] ? "Yes" : "No" }}</td>
         </tr>
         @endforeach
         @endif
@@ -132,6 +134,7 @@ Packs
                         <td>${v.branch.name ?? ""}</td>
                         <td>${v.category.value ?? ""}</td>
                         <td>${v.status ?? ""}</td>
+                        <td>${v.sack_id ? "Yes" : "No"}</td>
                     </tr>`;
         }
 

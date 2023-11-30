@@ -148,7 +148,7 @@
     </div>
   </div>
 
-  @if (has_access_to("add_privilege"))
+  @if (has_access_to("add_privileges"))
   <div class="modal fade" style="z-index: 1059" id="new_privilege" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">

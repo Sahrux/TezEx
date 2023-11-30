@@ -53,6 +53,16 @@
         </a>
       </li>
       @endif
+      @if(has_access_to("show_sacks"))
+      <li class="nav-item menu-open">
+        <a href="{{ route("sacks") }}" class="nav-link {{ Route::is("sacks") ? "active" : "" }}">
+          <i class="fas fa-shopping-bag"></i>&nbsp
+          <p>
+            Sacks
+          </p>
+        </a>
+      </li>
+      @endif
       @if(has_access_to("show_roles_n_privileges"))
       <li class="nav-item menu-open">
         <a href="{{ route("roles") }}" class="nav-link {{ Route::is("roles") ? "active" : "" }}">
